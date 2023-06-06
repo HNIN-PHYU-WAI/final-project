@@ -1,12 +1,17 @@
 .App {
   max-width: 300px;
   margin: 30px auto;
+  background-image: url(/src/bangkok.jpg);
+  padding: 30px;
+  border-radius: 5px;
 }
 
 .App-link {
   color: #61dafb;
+
 }
 
 .link{
   text-align: center;
+  font-size: 13px;
 }

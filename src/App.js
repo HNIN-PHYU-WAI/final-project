@@ -1,5 +1,7 @@
-import React from 'react';
+import React from "react";
 import Weather from "./weather.js";
+
+
 import './App.css';
 
 function App() {
@@ -8,17 +10,15 @@ function App() {
       <div className="App">
         <Weather defaultCity="Bangkok" />
       </div>
-      <div className="link">
-        <p>Coded by HNIN PHYU WAI And It Is</p>
+      <p className="link">
+        Coded by Hnin Phyu Wai and is 
         <a
+          href="https://www.github.com/HNIN-PHYU-WAI/final-project"
           className="App-link"
-          href="https://www.github.com/HNIN-PHYU-WAI"
-          target="_blank"
-          rel="noopener noreferrer"
         >
-          open source
+        {""} open source
         </a>
-      </div>
+      </p>
     </div>
   );
 }

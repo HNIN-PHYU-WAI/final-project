@@ -1,16 +1,22 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 
+import "./weatherInfo.css"
+
 export default function WeatherInfo(props){
   return (
     <div className="WeatherInfo">
-      <h1>{props.data.city}</h1>
-      <ul>
-        <li>
-          <FormattedDate time={props.data.time*1000} />
-        </li>
-        <li className="text-capitalize">{props.data.description}</li>
-      </ul>
+      <div className="text-center">
+        <h3 className=" mt-3">
+          {props.data.city},{props.data.country}
+        </h3>
+        <ul className="text-capitalize">
+          <li>
+            <FormattedDate time={props.data.time * 1000} />
+          </li>
+          <li>{props.data.description}</li>
+        </ul>
+      </div>
       <div className="row mt-3">
         <div className="col-6">
           <div className="d-flex weather-temperature">
@@ -18,8 +24,8 @@ export default function WeatherInfo(props){
               src={props.data.imageUrl}
               alt="weather-icon"
               id="icon"
-              width={100}
-              height={100}
+              width={70}
+              height={70}
             />
             <span>
               <strong>{Math.round(props.data.temperature)}°C</strong>
@@ -27,12 +33,23 @@ export default function WeatherInfo(props){
           </div>
         </div>
         <div className="col-6">
-          <ul>
-            <li>Humidity: {props.data.humidity}%</li>
-            <li>Wind: {props.data.wind} km/h</li>
-          </ul>
+          <div className="card border-secondary">
+            <div className="card-body">
+              <div className="condition">Humidity: {props.data.humidity}%</div>
+              <div className="condition">Wind:{props.data.wind}km/hr</div>
+            </div>
+          </div>
         </div>
       </div>
+      <footer className=" text-center">
+        <div className="card border-secondary mt-3">
+          <div className="card-body">
+            <strong>
+              Feels-Like{""} :{""} {Math.round(props.data.feelsLike)}°C
+            </strong>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

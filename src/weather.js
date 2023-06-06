@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import WeatherInfo from "./weatherInfo";
 
+import "./weather.css";
 
 export default function Weather(props) {
   let [city, setCity] = useState(props.defaultCity);
@@ -13,16 +14,18 @@ export default function Weather(props) {
       temperature: response.data.temperature.current,
       humidity: response.data.temperature.humidity,
       wind: response.data.wind.speed,
-      deacription: response.data.condition.description,
+      description: response.data.condition.description,
       city: response.data.city,
+      country: response.data.country,
       time: new Date(response.data.time),
       imageUrl: response.data.condition.icon_url,
+      feelsLike: response.data.temperature.feels_like,
     });
 
   }
 
   function Search() {
-    let key = "06fa5f0c173ae8o9ctd4134fb2530e34";
+    let key = "09ab3fdfc4a9o862fa2fea44052tffba";
     let unit = "metric";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=${unit}`;
 
@@ -44,12 +47,12 @@ export default function Weather(props) {
           <input
             type="search"
             placeholder="Search a city ....."
-            className="form-control"
+            className="form-control search-form"
             onChange={updateCity}
           />
         </div>
         <div className="col-3">
-          <input type="submit" value="🔍" className="btn btn-warning" />
+          <input type="submit" value="🔍" className="btn btn-branding button" />
         </div>
       </div>
     </form>
